@@ -1,18 +1,27 @@
-Ball ball1;
+Ball[] balls;
+int amount = 9;
 
 void setup(){
   size(200,200);
-  ball1 = new Ball(30,30,50);
+  balls = new Ball[amount];
+  
+  for (int n=0; n<amount; n++){
+    float rand_x = random(90);
+    float rand_y = random(90);
+    balls[n] = new Ball(rand_x, rand_y, 50);
+  }
 }
 
 void draw(){
-  ball1.draw();
+  for (int n=0; n<amount; n++){
+    balls[n].draw();
+  }
 }
 
 class Ball {
-  int pos_x, pos_y, sizeBall;
+  float pos_x, pos_y, sizeBall;
   
-  Ball(int position_x, int position_y, int size){
+  Ball(float position_x, float position_y, int size){
     pos_x = position_x;
     pos_y = position_y;
     sizeBall = size;
